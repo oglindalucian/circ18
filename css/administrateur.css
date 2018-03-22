@@ -1,0 +1,79 @@
+#divEnlever, #divEnregCircuit, #divFiche{
+	position: absolute;
+	top:40%;
+	left:35%;
+	display:none;
+	margin: auto;	
+	/* width: 600px; */
+	/* border: 3px solid #73AD21;	 */
+}
+
+#contenu {
+	position:absolute;top:50%;left:20%;
+}
+
+#messages {
+	position:absolute;top:10%;left:20%;color:red;
+}
+
+#admin, #divCircuits, #divUsagers, #divRabais{
+	display:none;	
+}
+
+div.tdba{
+	max-width: 600px;
+	margin: auto;
+	border: 3px solid #73AD21;	
+}
+
+.logo {
+	width:120px;
+	height:30px;
+	/* margin-top:-40px; */
+}
+
+.fifty td {
+	width:50%;
+}
+
+@media only screen and (max-width: 450px) {
+   #divEnlever, #divEnregCircuit, #divFiche{
+        top: 70%;
+    }
+	
+	#contenu {
+		position:absolute;top:80%;left:5%;
+	}
+
+	#messages {
+		position:absolute;top:50%;left:5%;color:red;
+	}
+}
+
+@media only screen and (min-width: 450px) and (max-width: 600px) {
+   #divEnlever, #divEnregCircuit, #divFiche{
+        top: 60%;
+    }
+	
+	#contenu {
+		position:absolute;top:70%;left:5%;
+	}
+
+	#messages {
+		position:absolute;top:60%;left:5%;color:red;
+	}
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1000px) {
+   #divEnlever, #divEnregCircuit, #divFiche{
+        top: 60%;
+    }
+	
+	#contenu {
+		position:absolute;top:55%;left:5%;
+	}
+
+	#messages {
+		position:absolute;top:50%;left:5%;color:red;
+	}
+}

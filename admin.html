@@ -1,0 +1,180 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script language="javascript" src="js/jquery-3.3.1.min.js"></script>
+		<script language="javascript" src="js/global.js"></script>
+		<script language="javascript" src="Administrateur/administrateurRequetes.js"></script>
+		<script language="javascript" src="Administrateur/administrateurControleurVue.js"></script>
+		<link rel="stylesheet" href="css/administrateur.css" type="text/css" />
+		<link rel="stylesheet" href="css/table.css" type="text/css" />
+		<link rel="stylesheet" href="css/normalize.min.css" type="text/css" />
+		<link rel="shortcut icon" href="">
+	</head>
+	<body>
+			<h1 style="text-align: center;">TABLEAU DE BORD DE L'ADMINISTRATEUR</h1>
+			
+			<div id="management" style="text-align: center;">
+				<input type="button" value="Gestion des circuits" onClick="rendreVisible('divCircuits');">
+				<input type="button" value="Gestion des usagers" onClick="rendreVisible('divUsagers');">
+				<input type="button" value="Gestion des rabais" onClick="rendreVisible('divRabais');">
+			</div>
+			
+			<br>
+
+			<div id="divCircuits" class="tdba" style="text-align: center;" >
+				<br>
+				<span style="text-align: right;" onClick="rendreInvisible('divCircuits')">FERMER X</span>
+				<h2>Gestion des circuits</h2>
+				<br>
+				<input type="button" value="Créer un circuit" onClick="rendreVisible('divEnregCircuit');">
+				<input type="button" value="Lister les circuits" onClick="lister();$('#contenu').show();">
+				<input type="button" value="Modifier un circuit" onClick="rendreVisible('divFiche');">
+				<br>
+				<br>
+			</div>
+			
+			<br>
+			<div id="divUsagers" class="tdba" style="text-align: center;">
+				<br>
+				<span style="text-align: right;" onClick="rendreInvisible('divUsagers')">FERMER X</span>
+				<h2>Gestion des usagers</h2>
+				<br>
+				<input type="button" value="Lister les usagers(R)" onClick="">
+				<input type="button" value="Réactiver un usager(U)" onClick="">
+				<input type="button" value="Désactiver un usager(U)" onClick="">
+				<br>
+				<br>
+			</div>
+			
+			<br>
+			<div id="divRabais" class="tdba" style="text-align: center;">
+				<br>
+				<span style="text-align: right;" onClick="rendreInvisible('divRabais')">FERMER X</span>
+				<h2>Gestion des rabais</h2>
+				<br>
+				<input type="button" value="Enregistrer un rabais(C)" onClick="">
+				<input type="button" value="Lister les rabais(R)" onClick="">
+				<input type="button" value="Désactiver un rabais(U)" onClick="">
+				<br>
+				<br>
+			</div>
+			
+			
+			<!-- FORMULAIRES -->
+			<div id="divEnregCircuit">
+				<form id="formEnregCircuit">
+					<br>
+					<span onClick="rendreInvisible('divEnregCircuit')">FERMER X</span>
+					<h3>Créer un circuit</h3><br>
+					Nom du circuit:<input type="text" id="nomCircuit" name="nomCircuit"><br>
+					Nombre minimum de places:<input type="text" id="nbPlacesMinimum" name="nbPlacesMinimum"><br>
+					Nombre maximum de places:<input type="text" id="nbPlacesMaximum" name="nbPlacesMaximum"><br>
+					Date de départ:<input type="date" id="dateDepart" name="dateDepart"><br>
+					Date de retour:<input type="date" id="dateArrivee" name="dateArrivee"><br>
+					Prix du circuit:<input type="text" id="prixCircuit" name="dateRetour"><br>
+					Nom du guide:<input type="text" id="guide" name="guide"><br>
+					Transport:<input type="text" id="transport" name="transport"><br>
+					Circuit actif:<input type="checkbox" id="etat" name="etat"><br>
+					<br><br>
+					Image de circuit:<input type="file" id="photoCircuit" name="photoCircuit"><br><br>
+					<input type="button" value="Créer le circuit" onClick="enregistrerCircuit();"><br>
+				</form>
+				<input type="button" value="Ajouter une étape" onClick="rendreVisible('divEnregEtape');">
+
+				<div id="divEnregEtape">
+					<form id="formEnregEtape">
+						<br>
+						<span onClick="rendreInvisible('formEnregEtape')">FERMER X</span>
+						<h3>Créer la première étape</h3><br>
+						
+						<br><br>
+						<input type="button" value="Créer l'étape" onClick="enregistrerEtape();"><br>
+						<input type="button" value="Ajouter une journée" onClick="rendreVisible('divEnregJour');">
+					</form>
+
+					
+
+					<div id="divEnregJour">
+						<form id="formEnregJour">
+							<br>
+							<span onClick="rendreInvisible('formEnregJour')">FERMER X</span>
+							<h3>Créer la première journée</h3><br>
+							
+							<br><br>
+							<input type="button" value="Créer la journée" onClick="enregistrerJour();"><br>
+						</form>
+
+	
+	
+					</div>
+	
+
+
+				</div>
+
+				<br>
+				<br>
+				
+			</div>
+			
+			<div id="divFiche">
+				<form id="formFiche">
+					<br>	
+					<span onClick="rendreInvisible('divFiche')">FERMER X</span>
+					<h3>Modifier un circuit</h3>
+					<br>
+					Numéro du circuit:<input type="text" id="idCircuitF" name="idCircuitF">
+					<br>
+					<input type="button" value="Envoyer" onClick="obtenirFiche();">
+					<br>
+				</form>
+			</div>
+			
+			<div id="contenu" style="position:absolute;top:50%;left:20%;"></div>
+			
+			<div id="messages" style="position:absolute;top:2%;left:80%;color:red;">
+			</div>
+			
+			<div id="divFormFicheC" style="position:absolute;top:10%;left:50%; display:none">
+				<form id="formFicheC">
+					<br><br>
+					<span onClick="rendreInvisible('divFormFicheC')">X</span><br>
+					<input type="hidden" id="idCircuitFC" name="idCircuitFC">
+					Nom du circuit:<input type="text" id="nomCircuitFC" name="nomCircuitFC"><br>
+					Nombre minimum de places:<input type="text" id="nbPlacesMinimumFC" name="nbPlacesMinimumFC"><br>
+					Nombre maximum de places:<input type="text" id="nbPlacesMaximumFC" name="nbPlacesMaximumFC"><br>
+					Date de départ:<input type="date" id="dateDepartFC" name="dateDepartFC"><br>
+					Date de retour:<input type="date" id="dateArriveeFC" name="dateArriveeFC"><br>
+					Prix du circuit:<input type="text" id="prixCircuitFC" name="dateRetourFC"><br>
+					Nom du guide:<input type="text" id="guideFC" name="guideFC"><br>
+					Transport:<input type="text" id="transportFC" name="transportFC"><br>
+					Circuit actif:<input type="checkbox" id="etatFC" name="etatFC"><br>
+					<br>
+					<br>
+					Image de circuit:<input type="file" id="photoCircuitFC" name="photoCircuitFC"><br><br>
+					<br>
+					<br>
+					<input type="button" value="Modifier" onClick="modifier();"><br>
+				</form>
+			</div>
+
+
+			<div id="divFormFicheE" style="position:absolute;top:10%;left:50%; display:none">
+				<form id="formFicheE">
+					><br><br>
+					<span onClick="rendreInvisible('divFormFicheE')">X</span><br>
+
+				</form>
+			</div>
+
+
+			<div id="divFormFicheJ style="position:absolute;top:10%;left:50%; display:none">
+				<form id="formFicheJ">
+					><br><br>
+					<span onClick="rendreInvisible('divFormFicheJ')">X</span><br>
+
+				</form>
+			</div>
+
+	</body>
+</html>

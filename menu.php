@@ -1,0 +1,35 @@
+<?php
+echo " <nav class=\"navbar navbar-default navbar-fixed-top\">\n"; 
+echo "		  <div class=\"container-fluid\">\n"; 
+echo "			<div class=\"navbar-header\">\n"; 
+echo "			\n"; 
+echo "                <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\n"; 
+echo "                    <span class=\"sr-only\">Toggle navigation</span>\n"; 
+echo "                    <span class=\"icon-bar\"></span>\n"; 
+echo "                    <span class=\"icon-bar\"></span>\n"; 
+echo "                    <span class=\"icon-bar\"></span>\n"; 
+echo "                </button>\n"; 
+echo "           \n"; 
+echo "			  <a class=\"navbar-brand\" href=\"#\"><img class=\"logo\" src=\"images/logo.png\" alt=\"\"></a>\n"; 
+echo "			</div>\n"; 
+echo "			<div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n"; 
+echo "			<ul class=\"nav navbar-nav\">\n"; 
+echo "			  <li class=\"active\"><a href=\"#home\">Accueil</a></li>\n"; 
+echo "			  <li class=\"dropdown\"><a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">Services <span class=\"caret\"></span></a>\n"; 
+echo "				<ul class=\"dropdown-menu\">\n"; 
+echo "				  <li><a href=\"#services\">Nos services</a></li>\n"; 
+echo "				  <li><a href=\"#products\">Nos produits</a></li>\n"; 
+echo "				  <li><a href=\"#testimonials\">Témoignages</a></li>\n"; 
+echo "				  <li><a href=\"#contact\">Contact</a></li>\n"; 
+echo "				</ul>\n"; 
+echo "			  </li>\n"; 
+echo "			  <li><a href=\"#\">Page 2</a></li>\n"; 
+echo "			</ul>\n"; 
+echo "			<ul class=\"nav navbar-nav navbar-right\">\n"; 
+echo "			  <li><a href=\"#\"><i class=\"fa fa-cart-arrow-down\" style=\"font-size:24px;color:red\"></i> Panier</a></li>\n"; 
+echo "			  <li><a href=\"#\" onClick=\"rendreInvisibleTous(); rendreVisible('admin'); rendreInvisible('accueil')\"><i class=\"fa fa-sign-in\" style=\"font-size:24px;color:red\"></i> Connexion</a></li>\n"; 
+echo "			</ul>\n"; 
+echo "			</div>\n"; 
+echo "		  </div>\n"; 
+echo "		</nav>\n";
+?>
