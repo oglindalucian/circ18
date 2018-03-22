@@ -205,29 +205,25 @@
 <div id="accueil">
     <section id="home">
         <div class="container">
-		<!--start carousel-->
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-
-            <ol class="carousel-indicators">
-                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-            </ol>
-
-
-            <div class="carousel-inner" role="listbox" >
-			
-				<div id="infoCarousel"></div>
-
-              
-                           
-            </div>
-
-        </div>
+		
+		<br><br><br><br><br><br>
+			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="width:750px; height:500px; margin:auto;">
+			  <!-- Indicators -->
+			  <ol class="carousel-indicators"></ol>
+			  <!-- Wrapper for slides -->
+			  <div class="carousel-inner"></div>
+			  <!-- Controls -->
+			  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+			  </a>
+			  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+			  </a>
+			</div>
         </div>
 		<!--fin carousel-->
     </section>
-
+	<br><br><br>
 
 
 
@@ -323,7 +319,7 @@
 
             <div class="carousel-inner" role="listbox">
 
-                <div class="item active">
+                <div class="item active carousel2">
                     <div class="carousel-caption">
                         <div class="row">
                             <div class="col-md-12 col-sm-12">
@@ -335,7 +331,7 @@
                                 <div class="block">
                                     <h3 style="color:#ff0f37;" class="text-center">Un voyage extraordinaire - Julia Savoie</h3>
                                     <p style="color:#111;font-size:14px;">
-                                        Il n’y a rien à dire. L’accueil dans la magnifique maison d’hôtes Nadir Home était superbe, on n’attendait pas tant. La qualité de la nourriture était extraordinaire, les hôtes très gentils et disponibles. Nous avons apprécié habiter dans ce quartier tranquille tout en étant proche du centre de Marrakech. Nous avons passé une excellente semaine à Marrakech. Merci !
+                                        Il n’y a rien à dire. L’accueil dans la magnifique maison d’hôtes Nadir Home était superbe, on n’attendait pas tant. Merci !
                                 </div>
                             </div>
                         </div>
@@ -343,7 +339,7 @@
                 </div>
 
 
-                <div class="item">
+                <div class="item carousel2">
                     <div class="carousel-caption">
                         <div class="row">
                             <div class="col-md-12 col-sm-12">
@@ -355,7 +351,7 @@
                                 <div class="block">
                                     <h3 style="color:#ff0f37;" class="text-center">Très bons souvenirs! - Mark Deloit</h3>
                                     <p style="color:#111;font-size:14px;">
-                                        Un pays en plein développement, entre 2 âges pourrions-nous dire, qui mérite le détour. Liljana, notre guide, pétrie de culture et engagée dans le développement agricole a su nous faire partager l’amour de son pays. Nous avons particulièrement aimé les rencontres avec les habitants et acteurs économiques, celles organisées, mais aussi celles plus impromptues, en prenant le temps de flâner. C’est un circuit qui permet de découvrir et comprendre les contrastes du développement passé et actuel des cités antiques, des périodes byzantines et ottomanes, du régime Hoxa, et maintenant de l’ouverture vers l’Europe…. Un accueil très chaleureux des Albanais tout au long du voyage.
+                                         C’est un circuit qui permet de découvrir et comprendre les contrastes du développement passé et actuel des cités antiques, des périodes byzantines et ottomanes, du régime Hoxa, et maintenant de l’ouverture vers l’Europe…. Un accueil très chaleureux des Albanais tout au long du voyage.
                                     </p>
                                 </div>
                             </div>
