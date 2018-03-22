@@ -48,6 +48,41 @@
 		}
 	}
 	
+	function peupler() {
+		global $tabRes;
+		$tabRes['action']="peupler";
+		$requete="SELECT * FROM circuit";
+		try{
+			 $unModele=new circuitModele($requete,array());
+			 $stmt=$unModele->executer();
+			 $tabRes['listeCircuits']=array();
+			 while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+			    $tabRes['listeCircuits'][]=$ligne;
+			}
+		}catch(Exception $e){
+		}finally{
+			unset($unModele);
+		}
+	}
+
+/*	
+	function peuplerCarousel() {
+		global $tabRes;
+		$tabRes['action']="peuplerCarousel";
+		$requete="SELECT * FROM circuit LIMIT 3";
+		try{
+			 $unModele=new circuitModele($requete,array());
+			 $stmt=$unModele->executer();
+			 $tabRes['listeCircuits2']=array();
+			 while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+			    $tabRes['listeCircuits2'][]=$ligne;
+			}
+		}catch(Exception $e){
+		}finally{
+			unset($unModele);
+		}
+	}
+*/	
 	
 	function fiche(){
 		global $tabRes;
@@ -205,6 +240,15 @@
 		case "modifierJour" :
 			modifierJour();
 		break;
+		case "peupler":
+			peupler();
+		break;
+		
+/*	    case "peuplerCarousel":
+			peuplerCarousel();
+		break;  */ 
+		
+		default: ;
 	}
     echo json_encode($tabRes);
 ?>

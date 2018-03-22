@@ -46,7 +46,7 @@
         </script>
 
     </head>
-    <body onLoad="creerElementsListes()">
+    <body onLoad="creerElementsListes(); peuplerProduits();">
 <div id="header">    
 	 <?php include 'menu.php';?>
 </div>	   
@@ -215,101 +215,12 @@
             </ol>
 
 
-            <div class="carousel-inner" role="listbox">
+            <div class="carousel-inner" role="listbox" >
+			
+				<div id="infoCarousel"></div>
 
-                <div class="item active">
-                        <div class="carousel-caption">
-                            <div class="row">
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="block">
-                                        <img class="app-img img-responsive" src="images/UK-French-Flags-1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-md-offset-1 col-sm-6">
-                                    <div class="block">
-                                        <h1>
-                                            NEW in our store,<br> iPhone 6.
-                                        </h1>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos nemo, corporis ipsum soluta nobis ea!
-                                        </p>
-
-                                        <ul class="download-btn">
-                                            <li>
-                                                <a href="#" class="btn btn-default btn-grey"> <i class="fa fa-list"></i>Details</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="btn btn-default btn-red"><i class="fa fa-shopping-cart"></i>BUY NOW</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-
-
-                <div class="item">
-                        <div class="carousel-caption">
-                            <div class="row">
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="block">
-                                        <img class="app-img img-responsive" src="images/walking-tours-iconic1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-md-offset-1 col-sm-6">
-                                    <div class="block">
-                                        <h1>
-                                            Samsung Galaxy S6 edge <br> designed to be perfect.
-                                        </h1>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos nemo, corporis ipsum soluta nobis ea!
-                                        </p>
-
-                                        <ul class="download-btn">
-                                            <li>
-                                                <a href="#" class="btn btn-default btn-grey"> <i class="fa fa-list"></i>Details</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="btn btn-default btn-red"><i class="fa fa-shopping-cart"></i>BUY NOW</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-				
-				<div class="item">
-                        <div class="carousel-caption">
-                            <div class="row">
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="block">
-                                        <img class="app-img img-responsive" src="images/ZSL-London-Zoo.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-md-offset-1 col-sm-6">
-                                    <div class="block">
-                                        <h1>
-                                            Samsung Galaxy S6 edge <br> designed to be perfect.
-                                        </h1>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos nemo, corporis ipsum soluta nobis ea!
-                                        </p>
-
-                                        <ul class="download-btn">
-                                            <li>
-                                                <a href="#" class="btn btn-default btn-grey"> <i class="fa fa-list"></i>Details</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="btn btn-default btn-red"><i class="fa fa-shopping-cart"></i>BUY NOW</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                </div>
+              
+                           
             </div>
 
         </div>
@@ -370,150 +281,19 @@
     </section>
 
 
-   
-    
-
-
-
-
 
     <section id="products">
         <div class="container">
             <h1 class="title">Produits</h1>
             <hr class="divider" style="width:50%;">
             <h2 class="text-center">Découvrez nos circuits:</h2>
-            
-			
-			<div class="row" style="margin-top:40px;">
-                <div class="col-sm-6 wow fadeInLeft product" data-wow-delay=".8s">
-                    <img src="images/UK-French-Flags-1.jpg" alt="iPhone 6" class="img-responsive presentationCircuit">
-                    <div class="product-info">
-                        <div class="col-sm-8">
-                            <h4>Europe du Nord-Ouest</h4>
-                            <p>France, Grande Bretagne</p>
-                        </div>
-                        <div class="col-sm-4 price">5000 $</div>
-                        <div class="clear"></div>
-                        <ul class="product-btns">
-                            <li>
-                                <a href="#" class="btn btn-default btn-grey"> <i class="fa fa-list"></i> Détails</a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn btn-default btn-red-o"><i class="fa fa-shopping-cart"></i> RÉSERVEZ</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-				
-                <div class="col-sm-6 wow fadeInDown product" data-wow-delay=".8s">
-                    <img src="images/IMG_6344-ni33qznx5au8mkl0d1uey2sw207i68sy2oarn5kdo0.jpg" alt="iPhone 6" class="img-responsive">
-                    <div class="product-info">
-                        <div class="col-sm-8">
-                            <h4>Samsung Galaxy S6</h4>
-                            <p>New model from samsung</p>
-                        </div>
-                        <div class="col-sm-4 price">499 $</div>
-                        <div class="clear"></div>
-                        <ul class="product-btns">
-                            <li>
-                                <a href="#" class="btn btn-default btn-grey"> <i class="fa fa-list"></i> Details</a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn btn-default btn-red-o"><i class="fa fa-shopping-cart"></i> BUY NOW</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-			</div>
-			
-			<div class="row" style="margin-top:40px;">	
-                <div class="col-sm-6 wow fadeInDown product" data-wow-delay=".8s">
-                    <img src="images/ZSL-London-Zoo.jpg" alt="iPhone 6" class="img-responsive">
-                    <div class="product-info">
-                        <div class="col-sm-8">
-                            <h4>Sony Xperia Z5</h4>
-                            <p>For all taste</p>
-                        </div>
-                        <div class="col-sm-4 price">487 $</div>
-                        <div class="clear"></div>
-                        <ul class="product-btns">
-                            <li>
-                                <a href="#" class="btn btn-default btn-grey"> <i class="fa fa-list"></i> Details</a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn btn-default btn-red-o"><i class="fa fa-shopping-cart"></i> BUY NOW</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-				
-                <div class="col-sm-6 wow fadeInRight product" data-wow-delay=".8s">
-                    <img src="images/products/4.jpg" alt="iPhone 6" class="img-responsive">
-                    <div class="product-info">
-                        <div class="col-sm-8">
-                            <h4>PlayStation 4</h4>
-                            <p>Gaming console by Sony</p>
-                        </div>
-                        <div class="col-sm-4 price">560 $</div>
-                        <div class="clear"></div>
-                        <ul class="product-btns">
-                            <li>
-                                <a href="#" class="btn btn-default btn-grey"> <i class="fa fa-list"></i> Details</a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn btn-default btn-red-o"><i class="fa fa-shopping-cart"></i> BUY NOW</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-			</div>
-
-			<div class="row" style="margin-top:40px;">	
-                <div class="col-sm-6 wow fadeInDown product" data-wow-delay=".8s">
-                    <img src="images/products/3.jpg" alt="iPhone 6" class="img-responsive">
-                    <div class="product-info">
-                        <div class="col-sm-8">
-                            <h4>Sony Xperia Z5</h4>
-                            <p>For all taste</p>
-                        </div>
-                        <div class="col-sm-4 price">487 $</div>
-                        <div class="clear"></div>
-                        <ul class="product-btns">
-                            <li>
-                                <a href="#" class="btn btn-default btn-grey"> <i class="fa fa-list"></i> Details</a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn btn-default btn-red-o"><i class="fa fa-shopping-cart"></i> BUY NOW</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-				
-                <div class="col-sm-6 wow fadeInRight product" data-wow-delay=".8s">
-                    <img src="images/products/4.jpg" alt="iPhone 6" class="img-responsive">
-                    <div class="product-info">
-                        <div class="col-sm-8">
-                            <h4>PlayStation 4</h4>
-                            <p>Gaming console by Sony</p>
-                        </div>
-                        <div class="col-sm-4 price">560 $</div>
-                        <div class="clear"></div>
-                        <ul class="product-btns">
-                            <li>
-                                <a href="#" class="btn btn-default btn-grey"> <i class="fa fa-list"></i> Details</a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn btn-default btn-red-o"><i class="fa fa-shopping-cart"></i> BUY NOW</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-			</div>
-				
-			
-			
-			
-                <div class="text-center">
+          
+			<section id="peuplerProduits">	                
+				<!--peupler circuits-->  
+			</section>
+        </div>
+		<br><br>
+		<div class="text-center">
                     <ul class="pagination pagination-lg wow fadeInUp" data-wow-delay="1.1s">
                         <li class="active"><a href="#">1</a></li>
                         <li><a href="#">2</a></li>
@@ -524,8 +304,7 @@
                         <li><a href="#">7</a></li>
                         <li><a href="#">8</a></li>
                     </ul>
-                </div>
-            </div>
+		</div>
        
     </section>
 
@@ -590,7 +369,7 @@
         </div>
     </section>
 
-
+	
 
 
     <section id="contact" class="wow fadeInUp bgc-one-top mts-section-wrapper mts-contact-section" data-wow-delay=".8s" style="margin-top:50px;margin-bottom:50px;">

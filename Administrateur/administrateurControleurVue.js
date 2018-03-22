@@ -15,8 +15,144 @@ function listerC(listCircuits){
 	rep+="</table>";
 	rep+="</div>";
 	$('#contenu').html(rep);
-	$('#contenu').css('display', 'block');	
+	//$('#contenu').css('display', 'block');	
 }
+
+function peuplerC(listCircuits){
+	var taille;
+	var rep="";
+	var rep2="";
+	taille=listCircuits.length;
+	for(var i=0; i<taille; i++){
+		//if(i%2==0) {
+			// rep+="<div class='row' style='margin-top:40px;'>";
+		// }
+		rep+="<div class='col-sm-6 wow fadeInLeft product' data-wow-delay='.8s'>";		
+		rep+="<img src='images/"+listCircuits[i].photoCircuit+"' alt='Nos circuits' class='img-responsive' width=1300 height=900>";
+		
+		rep+=" <div class='product-info'>";
+		
+		rep+="<div class='col-sm-8'>";
+		rep+="<h4>"+listCircuits[i].nomCircuit+"</h4>";
+		rep+="<p>"+listCircuits[i].transport+"</p>";
+		rep+="</div>";
+		
+		rep+="<div class='col-sm-4 price'>"+listCircuits[i].prixCircuit+"$</div>"; 
+		rep+="<div class='clear'></div>";
+		
+		rep+="<ul class='product-btns'>";
+		rep+=" <li>";
+		rep+="<a href='#' class='btn btn-default btn-grey' id='"+i+"'> <i class='fa fa-list'></i> Détails</a>";
+		rep+="</li>";
+		rep+="<li>";
+		rep+="<a href='#' class='btn btn-default btn-red-o' id=100'"+i+"' onClick=''><i class='fa fa-shopping-cart'></i> RÉSERVEZ</a>";
+		rep+="</li>";
+		rep+="</ul>";
+		
+		rep+="</div></div>";
+		
+		// if(i%2==0) {
+			// rep+="</div>";
+		// }
+	}
+		
+	$('#peuplerProduits').html(rep);
+	//------------
+	
+	
+	for(var i=0; i<2; i++){
+		if(i===0) {
+			rep2+="<div class='item active'>";
+		}
+		else
+			rep2+="<div class='item'>";		
+	rep2+="<div class='item'>";
+	
+    rep2+="<div class='carousel-caption'>";
+	
+    rep2+="<div class='row'>";	
+    rep2+="<div class='col-md-4 col-sm-6'>";	
+    rep2+="<div class='block'>";	
+    rep2+="<img class='app-img img-responsive' src='images/"+listCircuits[i].photoCircuit+"' alt='Nos circuits' width=1300 height=900>";
+    rep2+="</div>";
+    rep2+="</div>";	
+    rep2+="<div class='col-md-6 col-md-offset-1 col-sm-6'>";	
+    rep2+="<div class='block'>";	
+    rep2+="<h1>";
+    rep2+=listCircuits[i].nomCircuit;                                      
+    rep2+="</h1>";
+    rep2+="<p>Prix circuit: ";                                    
+    rep2+=listCircuits[i].prixCircuit;                                       
+    rep2+="</p>";
+	rep2+="<p>Transport: ";                                    
+    rep2+=listCircuits[i].transport;                                       
+    rep2+="</p>"; 
+	rep2+="<ul class='download-btn'>";                                    
+    rep2+="<li>";                                        
+    rep2+="<a href='#' class='btn btn-default btn-grey'> <i class='fa fa-list'></i>Détails</a>";                                            
+    rep2+="</li>";                                        
+    rep2+="<li>";                                        
+    rep2+="<a href='#' class='btn btn-default btn-red'><i class='fa fa-shopping-cart'></i>RÉSERVEZ</a>";                                           
+    rep2+="</li>";                                        
+    rep2+="</ul>";
+	
+    rep2+="</div>"; 	
+    rep2+="</div>"; 	
+    rep2+="</div>";                        
+    rep2+="</div>";
+	rep2+="</div>"; 	
+	}
+	$('#infoCarousel').html(rep2); 
+	
+}
+
+/*
+function peuplerCarousel(listCircuits) {
+	var taille;
+	var rep="";
+	taille=listCircuits.length;  
+	for(var i=0; i<taille; i++){
+		if(i===0) {
+			rep+="<div class='item active'>";
+		}
+		else
+			rep+="<div class='item'>";
+	rep+="<div class='item'>";
+    rep+="<div class='carousel-caption'>";
+    rep+="<div class='row'>";
+    rep+="<div class='col-md-4 col-sm-6'>";
+    rep+="<div class='block'>";
+    rep+="<img class='app-img img-responsive' src='images/"+listCircuits[i].photoCircuit+"' alt='Nos circuits' width=1300 height=900>";
+    rep+="</div>";
+    rep+="</div>";
+    rep+="<div class='col-md-6 col-md-offset-1 col-sm-6'>";
+    rep+="<div class='block'>";
+    rep+="<h1>";
+    rep+=listCircuits[i].nomCircuit;                                      
+    rep+="</h1>";
+    rep+="<p>Prix circuit: ";                                    
+    rep+=listCircuits[i].prixCircuit;                                       
+    rep+="</p>";
+	rep+="<p>Transport: ";                                    
+    rep+=listCircuits[i].transport;                                       
+    rep+="</p>"; 
+	rep+="<ul class='download-btn'>";                                    
+    rep+="<li>";                                        
+    rep+="<a href='#' class='btn btn-default btn-grey'> <i class='fa fa-list'></i>Détails</a>";                                            
+    rep+="</li>";                                        
+    rep+="<li>";                                        
+    rep+="<a href='#' class='btn btn-default btn-red'><i class='fa fa-shopping-cart'></i>RÉSERVEZ</a>";                                           
+    rep+="</li>";                                        
+    rep+="</ul>";                                    
+    rep+="</div>";                                
+    rep+="</div>";                            
+    rep+="</div>";                        
+    rep+="</div>";                    
+    rep+="</div>"; 	
+	}
+	$('#infoCarousel').html(rep);
+}
+*/
 
 function afficherFiche(reponse){
 	var uneFiche;
@@ -66,8 +202,17 @@ var administrateurVue=function(reponse){
 		case "lister" :
 			listerC(reponse.listeCircuits);
 		break;
+		case "peupler" :
+			peuplerC(reponse.listeCircuits);
+		break;
+		
+	/*	case "peuplerCarousel":
+			peuplerCarousel(reponse.listeCircuits2);
+		break;  */   
+		
 		case "fiche" :
 			afficherFiche(reponse);
-		break;	
+		break;
+	default: ;		
 	}
 }

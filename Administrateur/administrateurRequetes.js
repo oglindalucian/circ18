@@ -1,4 +1,5 @@
 //requetes circuits
+
 function enregistrerCircuit(){
 	var formCircuit = new FormData(document.getElementById('formEnregCircuit'));
 	//alert(formCircuit.get("action"));
@@ -82,6 +83,44 @@ function lister(){
 		}
 	});
 }
+
+function peuplerProduits() {
+	var formCircuit = new FormData();
+	formCircuit.append('action','peupler');
+	$.ajax({
+		type : 'POST',
+		url : 'Administrateur/administrateurControleur.php',
+		data : formCircuit,
+		contentType : false,
+		processData : false,
+		dataType : 'json', //text pour le voir en format de string
+		success : function (reponse){//alert(reponse);
+					administrateurVue(reponse);
+		},
+		fail : function (err){
+		}
+	});
+}
+
+/*
+function peuplerCarousel() {
+	var formCircuit = new FormData();
+	formCircuit.append('action','peuplerCarousel');
+	$.ajax({
+		type : 'POST',
+		url : 'Administrateur/administrateurControleur.php',
+		data : formCircuit,
+		contentType : false,
+		processData : false,
+		dataType : 'json', //text pour le voir en format de string
+		success : function (reponse){//alert(reponse);
+					administrateurVue(reponse);
+		},
+		fail : function (err){
+		}
+	});
+}
+*/
 
 function obtenirFiche(){
 	$('#divFiche').hide();
