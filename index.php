@@ -47,13 +47,13 @@
 
     </head>
     <body onLoad="creerElementsListes(); peuplerProduits();">
-<div id="header">    
+<div id="leheader">    
 	 <?php include 'menu.php';?>
 </div>	   
     
 
 	
-<!--start admin-->
+<!--start admin       $('#contenu').show();-->
 <div id="admin">
 	<div id="menuAdmin">
 		<br><br><br>
@@ -74,7 +74,7 @@
 				<h2>Gestion des circuits</h2>
 				<br>
 				<input type="button" value="Créer un circuit" onClick=" rendreInvisibleTous(); rendreVisible('divEnregCircuit');  ">
-				<input type="button" value="Lister les circuits" onClick="rendreInvisibleTous(); lister(); $('#contenu').show();   ">
+				<input type="button" value="Lister les circuits" onClick="rendreInvisibleTous(); lister();">
 				<input type="button" value="Modifier un circuit" onClick="rendreInvisibleTous(); rendreVisible('divFiche');   ">
 				<br>
 				<br>
@@ -86,9 +86,9 @@
 				<span style="text-align: right;" onClick="rendreInvisible('divUsagers')">FERMER <i class="fa fa-close" style="font-size:16px"></i></span>
 				<h2>Gestion des usagers</h2>
 				<br>
-				<input type="button" value="Lister les usagers(R)" onClick="rendreInvisibleTous(); rendreInvisible('divUsagers'); ">
-				<input type="button" value="Réactiver un usager(U)" onClick="rendreInvisibleTous(); rendreInvisible('divUsagers'); ">
-				<input type="button" value="Désactiver un usager(U)" onClick="rendreInvisibleTous(); rendreInvisible('divUsagers'); ">
+				<input type="button" value="Lister les usagers(R)" onClick="rendreInvisibleTous(); rendreInvisible('divUsagers');  ">
+				<input type="button" value="Réactiver un usager(U)" onClick="rendreInvisibleTous(); rendreInvisible('divUsagers'); rendreVisible('divReactiver');">
+				<input type="button" value="Désactiver un usager(U)" onClick="rendreInvisibleTous(); rendreInvisible('divUsagers'); rendreVisible('divDesactiver');">
 				<br>
 				<br>
 			</div>
@@ -99,9 +99,9 @@
 				<span style="text-align: right;" onClick="rendreInvisible('divRabais')">FERMER <i class="fa fa-close" style="font-size:16px"></i></span>
 				<h2>Gestion des rabais</h2>
 				<br>
-				<input type="button" value="Enregistrer un rabais(C)" onClick="rendreInvisibleTous(); rendreInvisible('divRabais'); ">
+				<input type="button" value="Enregistrer un rabais(C)" onClick="rendreInvisibleTous(); rendreInvisible('divRabais'); rendreVisible('divEnregRabais'); ">
 				<input type="button" value="Lister les rabais(R)" onClick="rendreInvisibleTous(); rendreInvisible('divRabais'); ">
-				<input type="button" value="Désactiver un rabais(U)" onClick="rendreInvisibleTous(); rendreInvisible('divRabais'); ">
+				<input type="button" value="Désactiver un rabais(U)" onClick="rendreInvisibleTous(); rendreInvisible('divRabais'); rendreVisible('divDesactiverRabais'); ">
 				<br>
 				<br>
 			</div>
@@ -128,24 +128,73 @@
 						<tr><td><br></td><td><br></td></tr>
 						<tr><td><label for="dateArrivee">Date de retour: </label></td><td><input type="date" id="dateArrivee" name="dateArrivee"></td></tr>
 						<tr><td><br></td><td><br></td></tr>
-						<tr><td><label for="prixCircuit">Prix du circuit: </label></td><td><input type="text" id="prixCircuit" name="dateRetour"></td></tr>
+						<tr><td><label for="prixCircuit">Prix du circuit: </label></td><td>
+							<input type="number" step="0.01" min="0" id="prixCircuit" name="dateRetour"></td></tr>
 						<tr><td><br></td><td><br></td></tr>
 						<tr><td><label for="guide">Nom du guide: </label></td><td><input type="text" id="guide" name="guide"></td></tr>
 						<tr><td><br></td><td><br></td></tr>
 						<tr><td><label for="transport">Transport: </label></td><td><input type="text" id="transport" name="transport"></td></tr>
 						<tr><td><br></td><td><br></td></tr>
 						<tr><td><label for="etat">Circuit actif: </label></td>
-							<td><select id="etat" name="etat"><option value="0">0</option><option value="1">1</option></select></td></tr>							
+							<td><select id="etat" name="etat"><option value="1">Actif</option><option value="0">Inactif</option></select></td></tr>							
 						<tr><td><br></td><td><br></td></tr>
 						<tr><td><label for="photoCircuit">Image de circuit: </label></td><td><input type="file" id="photoCircuit" name="photoCircuit"></td></tr>
 						<tr><td><br></td><td><br></td></tr>
-						<tr><td><input type="button" value="Créer le circuit" onClick="enregistrerCircuit();"></td><td>
+						<tr><td><input type="button" value="Créer le circuit" onClick="rendreInvisibleTous(); enregistrerCircuit();"></td><td>
 					</form>				
-								<input type="button" value="Ajouter une étape" onClick=" ajouterEtape(); "></td></tr>
+								<input type="button" value="Ajouter une étape" onClick="rendreInvisibleTous(); rendreVisible('divEnregEtape'); "></td></tr>
 						<tr><td><br></td><td><br></td></tr>
 					</table>
 			
 		</div>
+				<div id="divEnregEtape">
+					<form id="formEnregEtape">
+						<br>
+						<span onClick="rendreInvisible('formEnregEtape')">FERMER X</span>
+						<h3>Créer étape</h3><br>
+						<table border=0 class="table-striped table-hover table-responsive fifty">
+							<tr><td><label for="nomEtape">Nom Etape: </label></td><td><input type="text" id="nomEtape" name="nomEtape"></td></tr>
+							<tr><td><br></td><td><br></td></tr>
+							<tr><td><label for="nombreJour">Nombre de jours: </label></td>
+								<td><select id="nombreJour" name="nombreJour"></select></td></tr>
+							<tr><td><br></td><td><br></td></tr>
+							<tr><td><label for="dateArrivee">Date arrivee: </label></td><td><input type="date" id="dateArrivee" name="dateArrivee"></td></tr>
+							<tr><td><br></td><td><br></td></tr>
+							<tr><td><label for="dateDepart">Date de départ: </label></td><td><input type="date" id="dateDepart" name="dateDepart"></td></tr>
+							<tr><td><br></td><td><br></td></tr>	
+							<tr><td><label for="descriptionEtape">Description Etape: </label></td><td><textarea cols="30" rows="4" id="descriptionEtape" name="descriptionEtape"></textarea></td></tr>
+							<tr><td><br></td><td><br></td></tr>
+							<tr><td><label for="photoEtape">Photo Etape: </label></td><td><input type="file" id="photoEtape" name="photoEtape"></td></tr>
+							<tr><td><br></td><td><br></td></tr>
+							<tr><td><input type="button" value="Créer l'étape" onClick="enregistrerEtape();"></td>
+									<td><input type="button" value="Ajouter une journée" onClick="rendreInvisibleTous(); rendreVisible('divEnregJour');"></td></tr>
+							<tr><td><br></td><td><br></td></tr>
+							<tr><td><br></td><td><br></td></tr>
+							<tr><td><br></td><td><br></td></tr>
+							<tr><td><br></td><td><br></td></tr>
+						</table>
+					</form>		
+				</div>
+					
+					<div id="divEnregJour">
+						<form id="formEnregJour">
+							<br>
+							<span onClick="rendreInvisible('formEnregJour')">FERMER X</span>
+							<h3>Créer journée</h3><br>
+							<table border=0 class="table-striped table-hover table-responsive fifty">
+								<tr><td><label for="nomJour">Nom jour: </label></td><td><input type="text" id="nomJour" name="nomJour"></td></tr>
+								<tr><td><br></td><td><br></td></tr>
+								<tr><td><label for="nomVille">Nom ville: </label></td><td><input type="text" id="nomVille" name="nomVille"></td></tr>
+								<tr><td><br></td><td><br></td></tr>
+								<tr><td><label for="hotel">Hotel: </label></td><td><input type="text" id="hotel" name="hotel"></td></tr>
+								<tr><td><br></td><td><br></td></tr>
+								<tr><td><label for="restaurant">Restaurant: </label></td><td><input type="text" id="restaurant" name="restaurant"></td></tr>
+								<tr><td><br></td><td><br></td></tr>
+								<tr><td><input type="button" value="Créer la journée" onClick="rendreInvisibleTous(); enregistrerJour();"></td><td></td></tr>
+							</table>
+						</form>
+					</div>
+				
 			
 			<div id="divFiche">
 				<form id="formFiche">
@@ -154,9 +203,9 @@
 					<h3>Modifier un circuit</h3>
 					<br>
 				<table border=0 class="table-striped table-hover table-responsive">
-					<tr><td><label for="idCircuitF">Numéro du circuit: </label></td><td><input type="text" id="idCircuitF" name="idCircuitF"></td></tr>
+					<tr><td><label for="idCircuitF">Numéro du circuit: </label></td><td><select id="idCircuitF" name="idCircuitF"></select></td></tr>
 					<tr><td><br></td><td><br></td></tr>
-					<tr><td><input type="button" value="Envoyer" onClick=" obtenirFiche(); "></td><td></td></tr>					
+					<tr><td><input type="button" value="Envoyer" onClick="rendreInvisibleTous(); obtenirFiche(); "></td><td></td></tr>					
 				</table>
 				</form>
 			</div>
@@ -170,33 +219,115 @@
 				<table border=0 class="table-striped table-hover table-responsive">
 					<tr><td><label for="nomCircuitFC">Nom du circuit: </label></td><td><input type="text" id="nomCircuitFC" name="nomCircuitFC"></td></tr>
 					<tr><td><br></td><td><br></td></tr>
-					<tr><td><label for="nbPlacesMinimumFC">Nombre minimum de places: </label></td><td><input type="text" id="nbPlacesMinimumFC" name="nbPlacesMinimumFC"></td></tr>
+					<tr><td><label for="nbPlacesMinimumFC">Nombre minimum de places: </label></td><td><select id="nbPlacesMinimumFC" name="nbPlacesMinimumFC"></select></td></tr>
 					<tr><td><br></td><td><br></td></tr>
-					<tr><td><label for="nbPlacesMaximumFC">Nombre maximum de places: </label></td><td><input type="text" id="nbPlacesMaximumFC" name="nbPlacesMaximumFC"></td></tr>
+					<tr><td><label for="nbPlacesMaximumFC">Nombre maximum de places: </label></td><td><select id="nbPlacesMaximumFC" name="nbPlacesMaximumFC"></select></td></tr>
 					<tr><td><br></td><td><br></td></tr>
 					<tr><td><label for="dateDepartFC">Date de départ: </label></td><td><input type="date" id="dateDepartFC" name="dateDepartFC"></td></tr>
 					<tr><td><br></td><td><br></td></tr>
 					<tr><td><label for="dateArriveeFC">Date de retour: </label></td><td><input type="date" id="dateArriveeFC" name="dateArriveeFC"></td></tr>
 					<tr><td><br></td><td><br></td></tr>
-					<tr><td><label for="prixCircuitFC">Prix du circuit: </label></td><td><input type="text" id="prixCircuitFC" name="dateRetourFC"></td></tr>
+					<tr><td><label for="prixCircuitFC">Prix du circuit: </label></td><td><input type="number" step="0.01" min="0" id="prixCircuitFC" name="prixCircuitFC"></td></tr>
 					<tr><td><br></td><td><br></td></tr>
 					<tr><td><label for="guideFC">Nom du guide: </label></td><td><input type="text" id="guideFC" name="guideFC"></td></tr>
 					<tr><td><br></td><td><br></td></tr>
 					<tr><td><label for="transportFC">Transport: </label></td><td><input type="text" id="transportFC" name="transportFC"></td></tr>
 					<tr><td><br></td><td><br></td></tr>
-					<tr><td><label for="etatFC">Circuit actif: </label></td><td><input type="checkbox" id="etatFC" name="etatFC"></td></tr>
+					<tr><td><label for="etatFC">Circuit actif: </label></td><td><select id="etatFC" name="etatFC"><option value="1">Actif</option><option value="0">Inactif</option></select></td></tr>
 					<tr><td><br></td><td><br></td></tr>
 					<tr><td><label for="photoCircuitFC">Image de circuit: </label></td><td><input type="file" id="photoCircuitFC" name="photoCircuitFC"></td></tr>
 					<tr><td><br></td><td><br></td></tr>
-					<tr><td><input type="button" value="Modifier" onClick="modifier();"></td><td></td></tr>
+					<tr><td><input type="button" value="Modifier" onClick="modifier(); rendreInvisibleTous();"></td><td></td></tr>
 				</table>
 				</form>
 			</div>
 			
+			<div id="divReactiver">
+				<form id="formReactiverUsager">
+					<h3>Reactiver usager</h3><br><br>
+					<span onClick="rendreInvisible('divReactiver')">Fermer <i class="fa fa-close" style="font-size:16px"></i></span><br>
+					
+					<table border=0 class="table-striped table-hover table-responsive">
+						<tr><td><label for="idUsager">Id usager: </label></td><td><select id="idUsager" name="idUsager"></select></td></tr>
+						<tr><td><br></td><td><br></td></tr>
+						<tr><td><input type="button" value="Reactiver" onClick="rendreInvisibleTous(); reactiverCetUsager();"></td><td></td></tr>
+						<tr><td><br></td><td><br></td></tr>
+					</table>
+				</form>					
+			</div>
+			
+			<div id="divDesactiver">
+				<form id="formDesactiverUsager">
+					<h3>Desactiver usager</h3><br><br>
+					<span onClick="rendreInvisible('divDesactiver')">Fermer <i class="fa fa-close" style="font-size:16px"></i></span><br>
+					
+					<table border=0 class="table-striped table-hover table-responsive">
+						<tr><td><label for="idUsagerDes">Id usager: </label></td><td><select id="idUsagerDes" name="idUsagerDes"></select></td></tr>
+						<tr><td><br></td><td><br></td></tr>
+						<tr><td><input type="button" value="Desactiver" onClick="rendreInvisibleTous(); desactiverCetUsager();"></td><td></td></tr>
+						<tr><td><br></td><td><br></td></tr>
+					</table>
+				</form>					
+			</div>
+			
+				
+			<div id="divEnregRabais">
+			
+				<form id="formEnregRabais">
+					<br>
+					<span onClick="rendreInvisible('divEnregRabais')">FERMER <i class="fa fa-close" style="font-size:16px"></i></span>
+					<h3>Créer un rabais</h3><br>
+					<table border=0 class="table-striped table-hover table-responsive fifty">
+						<tr><td><label for="nomRabais">Nom du rabais: </label></td><td><input type="text" id="nomRabais" name="nomRabais"></td></tr>
+						<tr><td><br></td><td><br></td></tr>
+						<tr><td><label for="description">Description du rabais: </label></td><td><textarea rows="4" cols="30" id="description" name="description"></textarea></td></tr>
+						<tr><td><br></td><td><br></td></tr>
+						<tr><td><label for="pourcentage">Pourcentage: </label></td><td><input type="number" step="0.01" min="0" id="pourcentage" name="pourcentage"></td></tr>
+						<tr><td><br></td><td><br></td></tr>
+						<tr><td><label for="codePromo">CodePromo: </label></td><td><input type="text" id="codePromo" name="codePromo"></td></tr>
+						<tr><td><br></td><td><br></td></tr>						
+						<tr><td><input type="button" value="Créer le rabais" onClick="rendreInvisibleTous(); enregistrerRabais();"></td><td></td></tr>
+						<tr><td><br></td><td><br></td></tr>
+					</table>
+				</form>			
+			</div>
+			
+			<div id="divDesactiverRabais">
+				<form id="formDesactiverRabais">
+					<h3>Desactiver rabais</h3><br><br>
+					<span onClick="rendreInvisible('divDesactiverRabais')">Fermer <i class="fa fa-close" style="font-size:16px"></i></span><br>
+					
+					<table border=0 class="table-striped table-hover table-responsive">
+						<tr><td><label for="idRabaisDes">Id usager: </label></td><td><select id="idRabaisDes" name="idRabaisDes"></select></td></tr>
+						<tr><td><br></td><td><br></td></tr>
+						<tr><td><input type="button" value="Desactiver rabais" onClick="rendreInvisibleTous(); desactiverCeRabais();"></td><td></td></tr>
+						<tr><td><br></td><td><br></td></tr>
+					</table>
+				</form>
+			</div>
+			
+		<!--	<div id="divFormFicheE" style="position:absolute;top:10%;left:50%; display:none">
+				<form id="formFicheE">
+					<br><br>
+					<span onClick="rendreInvisible('divFormFicheE')">X</span><br>
+
+				</form>
+			</div>
+
+
+			<div id="divFormFicheJ style="position:absolute;top:10%;left:50%; display:none">
+				<form id="formFicheJ">
+					<br><br>
+					<span onClick="rendreInvisible('divFormFicheJ')">X</span><br>
+
+				</form>
+			</div>  -->
+			
 			<div id="contenu"></div>
 			
 			<div id="messages">
-			</div>
+			</div>	
+			
 			
 		</div>
 <!--fin admin-->
@@ -418,7 +549,9 @@ Pour vos questions relatives à un voyage, un projet de développement ou simple
 <?php include 'footer.php';?>
    
 </div>
-</div>
+
+
+
 <!--fin accueil-->	
 
 </body>

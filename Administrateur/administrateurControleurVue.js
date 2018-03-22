@@ -2,20 +2,22 @@
 
 function listerC(listCircuits){
 	var taille;
-	var rep="<div class='table-users' style='overflow: scroll; height: 500px;'>";
-	rep+="<div class='header'>Liste des circuits<span style='float:right;padding-right:10px;cursor:pointer;' onClick=\"$('#contenu').hide();\">X</span></div>";
-	rep+="<table cellspacing='0'>";
-	rep+="<tr><th>NUMERO</th><th>TITRE</th><th>NB PLACES MINIMUM</th><th>NB PLACES MAXIMUM</th><th>NB PLACES RÉSERVÉES</th><th>ÉTAT</th><th>DATE DE DÉPART</th><th>DATE DE RETOUR</th><th>PRIX</th><th>GUIDE</th><th>TRANSPORT</th><th>PHOTO CIRCUIT</th></tr>";
+	//var rep="<div class='table-users' style='overflow: scroll; height: 500px;' id='liste1'>";
+	//rep+="<div class='header' id='liste2'>Liste des circuits<span style='float:right;padding-right:10px;cursor:pointer;' onClick=\"$('#contenu').hide();\">X</span></div>";
+	var rep="<span style='text-align: right;' onClick=\"$('#contenu').hide();\">FERMER <i class='fa fa-close' style='font-size:32px'></i></span><br><br><br>";
+	rep+="<table  class='table table-bordered table-hover table-condensed table-responsive'>";
+	rep+="<tr><th>NUMERO</th><th>TITRE</th><th>NOMBRE PLACES MINIMUM</th><th>NB PLACES MAXIMUM</th><th>NOMBRE PLACES RÉSERVÉES</th><th>ÉTAT</th><th>DATE DE DÉPART</th><th>DATE DE RETOUR</th><th>PHOTO CIRCUIT</th><th>PRIX</th><th>GUIDE</th><th>TRANSPORT</th><th>RABAIS</th></tr>";
 	taille=listCircuits.length;
 	for(var i=0; i<taille; i++){
 		rep+="<tr><td>"+listCircuits[i].IdCircuit+"</td><td>"+listCircuits[i].nomCircuit +"</td><td>"+listCircuits[i].nbPlacesMinimum+"</td><td>"+listCircuits[i].nbrPlacesMaximum +
 		"</td><td>"+listCircuits[i].nbPlacesReservees+"</td><td>"+listCircuits[i].etat +"</td><td>"+listCircuits[i].dateDepart +"</td><td>"+listCircuits[i].dateArrivee +"</td><td><img src='imagesCircuits/"+listCircuits[i].photoCircuit+"' width=80 height=80></td>"+
 		"<td>"+listCircuits[i].prixCircuit +"</td><td>"+listCircuits[i].guide +"</td><td>"+listCircuits[i].transport + "</td><td>"+listCircuits[i].idRabais + "</td></tr>";		 
-	}
-	rep+="</table>";
-	rep+="</div>";
-	$('#contenu').html(rep);
+	}  
+	rep+="</table><br><br><br>";
+	//rep+="</div>";
 	//$('#contenu').css('display', 'block');	
+	$('#contenu').html(rep);
+	
 }
 
 function peuplerC(listCircuits){
@@ -111,14 +113,14 @@ var administrateurVue=function(reponse){
 			$('#messages').html(reponse.msg);
 			setTimeout(function(){ $('#messages').html(""); }, 5000);
 		break;
-		case "modifierEtape" :
+	/*	case "modifierEtape" :
 			$('#messages').html(reponse.msg);
 			setTimeout(function(){ $('#messages').html(""); }, 5000);
 		break;
 		case "modifierJour" :
 			$('#messages').html(reponse.msg);
 			setTimeout(function(){ $('#messages').html(""); }, 5000);
-		break;
+		break;   */
 		case "lister" :
 			listerC(reponse.listeCircuits);
 		break;

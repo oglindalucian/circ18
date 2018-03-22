@@ -1,4 +1,4 @@
-#divEnlever, #divEnregCircuit, #divFiche{
+#divEnlever, #divEnregCircuit, #divFiche, #divEnregEtape, #divEnregJour, #divReactiver, #divDesactiver, #divEnregRabais, #divDesactiverRabais {
 	position: absolute;
 	top:40%;
 	left:35%;
@@ -9,11 +9,11 @@
 }
 
 #contenu {
-	position:absolute;top:50%;left:20%;
+	position:absolute;top:95%; margin:auto;
 }
 
 #messages {
-	position:absolute;top:10%;left:20%;color:red;
+	position:absolute;top:80%;left:20%;color:red;
 }
 
 #admin, #divCircuits, #divUsagers, #divRabais{
@@ -44,11 +44,11 @@ div.tdba{
     }
 	
 	#contenu {
-		position:absolute;top:80%;left:5%;
+		position:absolute;top:155%;left:5%;
 	}
 
 	#messages {
-		position:absolute;top:50%;left:5%;color:red;
+		position:absolute;top:133%;left:5%;color:red;
 	}
 }
 
@@ -58,11 +58,11 @@ div.tdba{
     }
 	
 	#contenu {
-		position:absolute;top:70%;left:5%;
+		position:absolute;top:135%;left:5%;
 	}
 
 	#messages {
-		position:absolute;top:60%;left:5%;color:red;
+		position:absolute;top:120%;left:5%;color:red;
 	}
 }
 
@@ -72,10 +72,10 @@ div.tdba{
     }
 	
 	#contenu {
-		position:absolute;top:55%;left:5%;
+		position:absolute;top:130%;left:5%;
 	}
 
 	#messages {
-		position:absolute;top:50%;left:5%;color:red;
+		position:absolute;top:110%;left:5%;color:red;
 	}
 }

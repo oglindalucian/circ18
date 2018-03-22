@@ -31,7 +31,7 @@
 		}
 	}
 	
-	function lister(){
+	function lister() {
 		global $tabRes;
 		$tabRes['action']="lister";
 		$requete="SELECT * FROM circuit";

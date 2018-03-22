@@ -66,7 +66,7 @@ function enregistrerJour(){
 	});
 }
 
-function lister(){
+function lister() {
 	var formCircuit = new FormData();
 	formCircuit.append('action','lister');//alert(formCircuit.get("action"));
 	$.ajax({

@@ -9,10 +9,10 @@ function rendreInvisible(elem){
 function rendreInvisibleTous() {
 	$(document).ready(function() {	
 		 $("div").each(function( index ) {
-			 if($(this).attr('id')!="contenu" && $(this).attr('id')!="messages" && $(this).attr('id')!="header" && $(this).attr('id')!="container-fluid" && $(this).attr('id')!="navbar-header" && $(this).attr('id')!="collapse navbar-collapse" && $(this).attr('id')!="admin" && $(this).attr('id')!="menuAdmin" && $(this).attr('id')!="management")
+			 if($(this).attr('id')!="contenu" && $(this).attr('id')!="messages"  && $(this).attr('id')!="admin" && $(this).attr('id')!="menuAdmin" && $(this).attr('id')!="management" && $(this).attr('id')!="liste1" && $(this).attr('id')!="liste2")
 				$(this).css('display', 'none');		
 		});
-		//rendreVisible("container-fluid"); rendreVisible("navbar-header"); rendreVisible("collapse navbar-collapse"); 
+		//&& $(this).attr('id')!="leheader" && $(this).attr('id')!="container-fluid" && $(this).attr('id')!="navbar-header" && $(this).attr('id')!="collapse navbar-collapse"
 	});
 }
 
@@ -25,9 +25,7 @@ function rendreVisibleTous() {
 	});
 }
 
-function lister() {
-	//a effacaer
-}
+
 
 function validerNum(elem){
 	var num=document.getElementById(elem).value;
@@ -66,6 +64,59 @@ function creerElementsListes() {
 		listeMax.appendChild(options);		
 	}
 
+	var listenombreJour = document.getElementById("nombreJour");
+	for(var i=1; i<100; i++) {
+		var options = document.createElement("option");
+		options.textContent = i;
+		options.value = i;
+		listenombreJour.appendChild(options);		
+	}
 	
+	var nbPlacesMinimumFC = document.getElementById("nbPlacesMinimumFC");
+	for(var i=1; i<25; i++) {
+		var options = document.createElement("option");
+		options.textContent = i;
+		options.value = i;
+		nbPlacesMinimumFC.appendChild(options);		
+	}
 	
+	var nbPlacesMaximumFC = document.getElementById("nbPlacesMaximumFC");
+	for(var i=1; i<25; i++) {
+		var options = document.createElement("option");
+		options.textContent = i;
+		options.value = i;
+		nbPlacesMaximumFC.appendChild(options);		
+	}
+	
+	var idUsager = document.getElementById("idUsager");
+	for(var i=1; i<250; i++) {
+		var options = document.createElement("option");
+		options.textContent = i;
+		options.value = i;
+		idUsager.appendChild(options);		
+	}
+	
+	var idUsagerDes = document.getElementById("idUsagerDes");
+	for(var i=1; i<250; i++) {
+		var options = document.createElement("option");
+		options.textContent = i;
+		options.value = i;
+		idUsagerDes.appendChild(options);		
+	}
+	
+	var idRabaisDes = document.getElementById("idRabaisDes");
+	for(var i=1; i<250; i++) {
+		var options = document.createElement("option");
+		options.textContent = i;
+		options.value = i;
+		idRabaisDes.appendChild(options);		
+	}
+	
+	var idCircuitF = document.getElementById("idCircuitF");
+	for(var i=1; i<250; i++) {
+		var options = document.createElement("option");
+		options.textContent = i;
+		options.value = i;
+		idCircuitF.appendChild(options);		
+	}
 }
